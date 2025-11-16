@@ -1,0 +1,83 @@
+/* Custom CSS Overrides */
+
+/* Set the default font for the entire body */
+body {
+    font-family: 'Montserrat', sans-serif; 
+    line-height: 1.6;
+}
+
+/* * Optional: Customize the main Bootstrap colors 
+* (If you want a specific "IT Blue" or "Creative Gold")
+*/
+
+/* Example of overriding the primary color to be a darker Navy Blue */
+.btn-primary, .text-primary {
+    --bs-primary: #0b1a2d; /* Deep Navy Blue */
+    --bs-primary-rgb: 11, 26, 45;
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+    --bs-primary-rgb: 11, 26, 45;
+    background-color: #05101b; /* Slightly darker hover state */
+    border-color: #05101b;
+}
+
+/* Ensures the text on the navbar logo matches the custom font style */
+.navbar-brand {
+    font-weight: 700;
+}
+/*
+ * 1. Image Container (The Viewport)
+ * This wrapper is essential for hiding the part of the image that slides out.
+ */
+.image-container {
+    /* Ensures nothing overflows outside this box */
+    overflow: hidden; 
+    
+    /* Sets the height for a uniform look for the creative images (250px is from the previous placeholder) */
+    height: 250px; 
+    
+    /* Needed so the image can be positioned and moved relative to this container */
+    position: relative;
+    
+    /* Adds rounded corners to the top of the image container */
+    border-top-left-radius: 0.375rem; /* Matches Bootstrap's rounded-3 */
+    border-top-right-radius: 0.375rem;
+}
+
+/*
+ * 2. The Image (The Sliding Element)
+ */
+.hover-slide-image {
+    /* Smooth animation for transformation (sliding) and filter (darkening) */
+    transition: transform 0.5s ease-in-out, filter 0.3s ease;
+    
+    /* Make the image a block element */
+    display: block;
+    
+    /* Ensure the image fills the container */
+    width: 100%;
+    height: 100%;
+    
+    /* Makes the image cover the area without distortion */
+    object-fit: cover; 
+    
+    /* Initial position: Slightly pushed to the right (1% of its width) */
+    transform: translateX(1%); 
+}
+
+/*
+ * 3. Hover State (The Slide Action)
+ */
+.hover-slide-image:hover {
+    /* Slide the image slightly to the left (-1% of its width) */
+    transform: translateX(-1%); 
+    
+    /* Slightly darkens the image to make the hover state more noticeable */
+    filter: brightness(0.9); 
+    
+    /* Changes the cursor to indicate it's clickable */
+    cursor: pointer;
+}
